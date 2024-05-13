@@ -4,10 +4,11 @@ import requests
 API_URL = 'http://localhost:5000/data-analyzer'
 
 loader = instaloader.Instaloader()
-username = 'hiram.dev'
+userPublic = 'mentesprogramadoras'
+userPrivate = ''
 
 try:
-    profile = instaloader.Profile.from_username(loader.context, username)
+    profile = instaloader.Profile.from_username(loader.context, userPublic)
 
     data_collected = {
         "nombrePersona": profile.username,
@@ -17,7 +18,10 @@ try:
         "publicaciones": []
     }
 
+    MAX_POSTS = 4
     for post in profile.get_posts():
+        if len(data_collected["publicaciones"]) >= MAX_POSTS:
+            break
         post_data = {
             "descripcionPost": post.caption,
             "hashtags": post.caption_hashtags,
@@ -34,5 +38,5 @@ try:
 
 except instaloader.exceptions.ProfileNotExistsException:
     print("El perfil especificado no existe.")
-except instaloader.exceptions.ConnectionException:
-    print("Error de conexión. Por favor, verifica tu conexión a internet.")
+except instaloader.exceptions.QueryReturnedNotFoundException as e:
+    print(f"Error al obtener publicaciones: {e}")
