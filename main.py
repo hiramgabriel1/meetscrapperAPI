@@ -1,12 +1,32 @@
 import instaloader
 import requests
+loader = instaloader.Instaloader()
+loader.context.login("hiram.dev", "JavaScript2003")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 API_URL = 'http://localhost:5000/data-analyzer'
 
-loader = instaloader.Instaloader()
-userPublic = 'mentesprogramadoras'
-userPrivate = 'brissita7'
-userAlone = 'danteyahir'
+# users
+userPublic = 'denxcxrx'
+userAlone = 'danteyahir' 
+userPrivate = 'briss'
 
 try:
     profile = instaloader.Profile.from_username(loader.context, userPublic)
@@ -19,7 +39,7 @@ try:
         "publicaciones": []
     }
 
-    MAX_POSTS = 4
+    MAX_POSTS = 7
     for post in profile.get_posts():
         if len(data_collected["publicaciones"]) >= MAX_POSTS:
             break
