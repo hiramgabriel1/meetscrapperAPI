@@ -1,7 +1,7 @@
 import instaloader
 import requests
 loader = instaloader.Instaloader()
-loader.context.login("hiram.dev", "JavaScript2003")
+loader.context.login("hiram.dev", "Typeksalsk")
 
 
 
