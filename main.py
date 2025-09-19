@@ -1,25 +1,7 @@
 import instaloader
 import requests
 loader = instaloader.Instaloader()
-loader.context.login("hiram.dev", "Typeksalsk")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+loader.context.login("usernameInstagramAqui", "Contraseña")
 
 API_URL = 'http://localhost:5000/data-analyzer'
 
